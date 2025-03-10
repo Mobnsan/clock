@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: bisque;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 100vh;
+            & .item{
+                position: relative;
+                height:400px ;
+                border-radius: 50%;
+                width: 300px;
+                background-image: url(Official_watchOS_Templates-App+Notifications+Complications+Siri__Community___1_-removebg-preview.png);
+                display: flex;
+                background-position: center;
+                background-repeat: no-repeat;
+                justify-content: center;
+                align-items: center;
+
+                & #f{
+                    font-size: 37px;
+                    font-weight: bold;
+                    background-color: rgb(255, 222, 180);
+                    -webkit-background-clip: text;
+                    color: transparent;
+                   
+                }
+                & .bg{
+                    position: absolute;
+                    background-color: black;
+                    height: 200px;
+                    width: 200px;
+                    z-index: -1;
+                }
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">
+            <p id="f"></p>
+            <div class="bg"></div>
+        </div>
+    </div>
+    
+    <script>
+        setInterval(function(){let now=new Date()
+        let hours=now.getHours().toLocaleString().padStart(2,"0")
+        let minutes=now.getMinutes().toLocaleString().padStart(2,"0")
+        let secons=now.getSeconds().toLocaleString().padStart(2,"0")
+        document.getElementById("f").innerHTML=`${hours}:${minutes}:${secons}`
+        })()
+    </script>
+</body>
+</html>
